@@ -5,16 +5,16 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
-  Code2, 
-  Database, 
-  Layout, 
-  Server, 
-  GraduationCap, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  Code2,
+  Database,
+  Layout,
+  Server,
+  GraduationCap,
   Briefcase,
   ChevronRight,
   Menu,
@@ -22,8 +22,31 @@ import {
   Download,
   Award,
   Calendar,
-  Building2
+  Building2,
 } from 'lucide-react';
+
+// =========================
+// IMPORT LOCAL ASSETS HERE
+// Replace these with your real filenames from src/assets
+// =========================
+import heroImage from './assets/ylnk.jpg';
+import aboutImg1 from './assets/knly1.jpg';
+import aboutImg2 from './assets/knly2.jpg';
+import aboutImg3 from './assets/knly3.jpg';
+import aboutImg4 from './assets/knly4.jpg';
+
+import project1Img from './assets/project-1.png';
+import project2Img from './assets/project-2.png';
+import project3Img from './assets/project-3.png';
+
+import cert1Img from './assets/cert1.jpg';
+import cert2Img from './assets/cert2.jpg';
+import cert3Img from './assets/cert3.jpg';
+import cert4Img from './assets/cert4.jpg';
+import cert5Img from './assets/5.jpg';
+import cert6Img from './assets/6.jpg';
+import cert7Img from './assets/7.jpg';
+
 
 // --- Types ---
 interface Project {
@@ -56,6 +79,7 @@ interface Certificate {
   issuer: string;
   date: string;
   link: string;
+  image: string;
   icon: React.ReactNode;
 }
 
@@ -63,106 +87,111 @@ interface Certificate {
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured online store built with Laravel and React. Features include user authentication, product management, and Stripe integration.",
-    tags: ["Laravel", "React", "MySQL", "Tailwind"],
-    image: "https://picsum.photos/seed/shop/800/600",
-    link: "#",
-    github: "#"
+    title: 'E-Commerce Platform',
+    description:
+      'A full-featured online store built with Laravel and React. Features include user authentication, product management, and Stripe integration.',
+    tags: ['Laravel', 'React', 'MySQL', 'Tailwind'],
+    image: project1Img,
+    link: '#',
+    github: '#',
   },
   {
     id: 2,
-    title: "Task Management API",
-    description: "A robust RESTful API for managing team tasks, featuring JWT authentication and automated testing with PHPUnit.",
-    tags: ["PHP", "Laravel", "Redis", "Docker"],
-    image: "https://picsum.photos/seed/api/800/600",
-    link: "#",
-    github: "#"
+    title: 'Task Management API',
+    description:
+      'A robust RESTful API for managing team tasks, featuring JWT authentication and automated testing with PHPUnit.',
+    tags: ['PHP', 'Laravel', 'Redis', 'Docker'],
+    image: project2Img,
+    link: '#',
+    github: '#',
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio built with React and Framer Motion to showcase my journey as an IT graduate.",
-    tags: ["React", "TypeScript", "Motion", "Vite"],
-    image: "https://picsum.photos/seed/portfolio/800/600",
-    link: "#",
-    github: "#"
-  }
+    title: 'Portfolio Website',
+    description:
+      'A modern, responsive portfolio built with React and Framer Motion to showcase my journey as an IT graduate.',
+    tags: ['React', 'TypeScript', 'Motion', 'Vite'],
+    image: project3Img,
+    link: '#',
+    github: '#',
+  },
 ];
 
 const SKILLS: Skill[] = [
-  { name: "React", category: "Frontend", icon: <Layout className="w-4 h-4" /> },
-  { name: "TypeScript", category: "Frontend", icon: <Code2 className="w-4 h-4" /> },
-  { name: "Tailwind CSS", category: "Frontend", icon: <Layout className="w-4 h-4" /> },
-  { name: "PHP / Laravel", category: "Backend", icon: <Server className="w-4 h-4" /> },
-  { name: "Node.js", category: "Backend", icon: <Server className="w-4 h-4" /> },
-  { name: "MySQL", category: "Database", icon: <Database className="w-4 h-4" /> },
-  { name: "PostgreSQL", category: "Database", icon: <Database className="w-4 h-4" /> },
-  { name: "Git / GitHub", category: "Tools", icon: <Code2 className="w-4 h-4" /> },
-  { name: "Docker", category: "Tools", icon: <Server className="w-4 h-4" /> },
+  { name: 'React', category: 'Frontend', icon: <Layout className="w-4 h-4" /> },
+  { name: 'TypeScript', category: 'Frontend', icon: <Code2 className="w-4 h-4" /> },
+  { name: 'Tailwind CSS', category: 'Frontend', icon: <Layout className="w-4 h-4" /> },
+  { name: 'PHP / Laravel', category: 'Backend', icon: <Server className="w-4 h-4" /> },
+  { name: 'Node.js', category: 'Backend', icon: <Server className="w-4 h-4" /> },
+  { name: 'MySQL', category: 'Database', icon: <Database className="w-4 h-4" /> },
+  { name: 'PostgreSQL', category: 'Database', icon: <Database className="w-4 h-4" /> },
+  { name: 'Git / GitHub', category: 'Tools', icon: <Code2 className="w-4 h-4" /> },
+  { name: 'Docker', category: 'Tools', icon: <Server className="w-4 h-4" /> },
 ];
 
 const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    company: "TechCorp Solutions",
-    role: "Full-Stack Developer Intern",
-    period: "June 2024 - December 2024",
+    company: 'TechCorp Solutions',
+    role: 'Full-Stack Developer Intern',
+    period: 'June 2024 - December 2024',
     description: [
-      "Assisted in the development of a internal CRM system using Laravel and React.",
-      "Optimized database queries, reducing page load times by 30%.",
-      "Collaborated with senior developers to implement RESTful APIs and front-end components."
-    ]
+      'Assisted in the development of a internal CRM system using Laravel and React.',
+      'Optimized database queries, reducing page load times by 30%.',
+      'Collaborated with senior developers to implement RESTful APIs and front-end components.',
+    ],
   },
   {
     id: 2,
-    company: "University IT Department",
-    role: "Student IT Support",
-    period: "September 2022 - May 2024",
+    company: 'University IT Department',
+    role: 'Student IT Support',
+    period: 'September 2022 - May 2024',
     description: [
-      "Provided technical support for university staff and students.",
-      "Maintained and updated department website using PHP and MySQL.",
-      "Troubleshot network and hardware issues across campus labs."
-    ]
-  }
+      'Provided technical support for university staff and students.',
+      'Maintained and updated department website using PHP and MySQL.',
+      'Troubleshot network and hardware issues across campus labs.',
+    ],
+  },
 ];
 
 const CERTIFICATES: Certificate[] = [
   {
     id: 1,
-    title: "Laravel Advanced Development",
-    issuer: "Udemy",
-    date: "2024",
-    link: "#",
-    icon: <Server className="w-5 h-5" />
+    title: 'Laravel Advanced Development',
+    issuer: 'Udemy',
+    date: '2024',
+    link: cert1Img,
+    image: cert1Img,
+    icon: <Server className="w-5 h-5" />,
   },
   {
     id: 2,
-    title: "Meta Front-End Developer Professional Certificate",
-    issuer: "Coursera",
-    date: "2023",
-    link: "#",
-    icon: <Layout className="w-5 h-5" />
+    title: 'Meta Front-End Developer Professional Certificate',
+    issuer: 'Coursera',
+    date: '2023',
+    link: cert2Img,
+    image: cert2Img,
+    icon: <Layout className="w-5 h-5" />,
   },
   {
     id: 3,
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "2024",
-    link: "#",
-    icon: <Database className="w-5 h-5" />
-  }
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    link: cert3Img,
+    image: cert3Img,
+    icon: <Database className="w-5 h-5" />,
+  },
 ];
 
 // --- Components ---
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '#about' },{ name: 'Experience', href: '#experience' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
-    
     { name: 'Projects', href: '#projects' },
     { name: 'Certificates', href: '#certificates' },
     { name: 'Contact', href: '#contact' },
@@ -176,11 +205,10 @@ const Navbar = () => {
             <span className="text-2xl font-bold text-blue-600">Fullstack Developer</span>
             <span className="text-2xl font-light text-slate-900">/TechVA</span>
           </div>
-          
-          {/* Desktop Nav */}
+
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.name}
                 href={link.href}
                 className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
@@ -190,9 +218,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-600 hover:text-blue-600 p-2"
             >
@@ -202,10 +229,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -230,9 +256,15 @@ const Navbar = () => {
   );
 };
 
-const SectionHeading = ({ children, subtitle }: { children: React.ReactNode, subtitle?: string }) => (
+const SectionHeading = ({
+  children,
+  subtitle,
+}: {
+  children: React.ReactNode;
+  subtitle?: string;
+}) => (
   <div className="mb-12">
-    <motion.h2 
+    <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -241,7 +273,7 @@ const SectionHeading = ({ children, subtitle }: { children: React.ReactNode, sub
       {children}
     </motion.h2>
     {subtitle && (
-      <motion.p 
+      <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -251,7 +283,7 @@ const SectionHeading = ({ children, subtitle }: { children: React.ReactNode, sub
         {subtitle}
       </motion.p>
     )}
-    <motion.div 
+    <motion.div
       initial={{ width: 0 }}
       whileInView={{ width: 60 }}
       viewport={{ once: true }}
@@ -263,21 +295,19 @@ const SectionHeading = ({ children, subtitle }: { children: React.ReactNode, sub
 export default function App() {
   return (
     <div className="min-h-screen relative selection:bg-blue-100 selection:text-blue-900">
-      {/* Abstract Background Elements */}
       <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-blue-100/30 blur-[120px]" />
         <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] rounded-full bg-blue-50/40 blur-[100px]" />
         <div className="absolute bottom-[10%] left-[5%] w-[35%] h-[35%] rounded-full bg-blue-100/20 blur-[110px]" />
       </div>
-      
+
       <Navbar />
 
       <main>
-        {/* Hero Section */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="absolute top-0 right-0 -z-10 w-2/3 h-full bg-linear-to-bl from-blue-100/50 via-blue-50/20 to-transparent skew-x-12 transform origin-top-right" />
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -292,23 +322,24 @@ export default function App() {
                   Hi, I'm <span className="text-blue-600">Kinley Cartagenas</span>
                 </h1>
                 <p className="text-xl text-slate-600 mb-8 max-w-lg leading-relaxed">
-                  A passionate IT Graduate specializing in Full-Stack Development with a strong focus on Laravel and React. Building scalable, user-centric web applications.
+                  A passionate IT Graduate specializing in Full-Stack Development with a strong
+                  focus on Laravel and React. Building scalable, user-centric web applications.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a 
-                    href="#contact" 
+                  <a
+                    href="#contact"
                     className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center gap-2"
                   >
                     Get in Touch <ChevronRight className="w-4 h-4" />
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50 transition-all flex items-center gap-2"
                   >
                     Download CV <Download className="w-4 h-4" />
                   </a>
                 </div>
-                
+
                 <div className="mt-12 flex items-center gap-6">
                   <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors">
                     <Github className="w-6 h-6" />
@@ -329,14 +360,8 @@ export default function App() {
                 className="relative"
               >
                 <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                  <img 
-                    src="https://picsum.photos/seed/developer/800/1000" 
-                    alt="Alex Chen" 
-                    className="w-full h-auto object-cover"
-                    referrerPolicy="no-referrer"
-                  />
+                  <img src={heroImage} alt="Kinley Cartagenas" className="w-full h-auto object-cover" />
                 </div>
-                {/* Decorative elements */}
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-600 rounded-2xl -z-10 opacity-20 blur-2xl" />
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-400 rounded-full -z-10 opacity-20 blur-2xl" />
               </motion.div>
@@ -344,7 +369,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -354,10 +378,15 @@ export default function App() {
                 </SectionHeading>
                 <div className="space-y-6 text-slate-600 leading-relaxed">
                   <p>
-                    I recently graduated with a Bachelor's degree in Information Technology, where I developed a deep interest in web technologies and software engineering. My academic background provided me with a solid foundation in computer science principles, which I've applied to numerous personal and academic projects.
+                    I recently graduated with a Bachelor's degree in Information Technology, where
+                    I developed a deep interest in web technologies and software engineering. My
+                    academic background provided me with a solid foundation in computer science
+                    principles, which I've applied to numerous personal and academic projects.
                   </p>
                   <p>
-                    I am particularly drawn to the Laravel ecosystem for its elegant syntax and powerful features, and I love pairing it with modern frontend frameworks like React to create seamless user experiences.
+                    I am particularly drawn to the Laravel ecosystem for its elegant syntax and
+                    powerful features, and I love pairing it with modern frontend frameworks like
+                    React to create seamless user experiences.
                   </p>
                   <div className="grid grid-cols-2 gap-6 pt-4">
                     <div className="flex items-start gap-3">
@@ -383,27 +412,27 @@ export default function App() {
                   </div>
                 </div>
               </div>
+
               <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-8">
-                  <img src="https://picsum.photos/seed/code1/400/500" className="rounded-2xl shadow-lg" alt="Coding" referrerPolicy="no-referrer" />
-                  <img src="https://picsum.photos/seed/code2/400/300" className="rounded-2xl shadow-lg" alt="Setup" referrerPolicy="no-referrer" />
+                  <img src={aboutImg1} className="rounded-2xl shadow-lg" alt="Coding" />
+                  <img src={aboutImg2} className="rounded-2xl shadow-lg" alt="Setup" />
                 </div>
                 <div className="space-y-4">
-                  <img src="https://picsum.photos/seed/code3/400/300" className="rounded-2xl shadow-lg" alt="Team" referrerPolicy="no-referrer" />
-                  <img src="https://picsum.photos/seed/code4/400/500" className="rounded-2xl shadow-lg" alt="Design" referrerPolicy="no-referrer" />
+                  <img src={aboutImg3} className="rounded-2xl shadow-lg" alt="Team" />
+                  <img src={aboutImg4} className="rounded-2xl shadow-lg" alt="Design" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Skills Section */}
         <section id="skills" className="py-24 bg-linear-to-b from-blue-50/50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading subtitle="The technologies I use to bring ideas to life.">
               Technical Skills
             </SectionHeading>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {(['Frontend', 'Backend', 'Database', 'Tools'] as const).map((category) => (
                 <motion.div
@@ -418,7 +447,7 @@ export default function App() {
                     {category}
                   </h3>
                   <div className="space-y-3">
-                    {SKILLS.filter(s => s.category === category).map((skill) => (
+                    {SKILLS.filter((s) => s.category === category).map((skill) => (
                       <div key={skill.name} className="flex items-center gap-3 text-slate-600">
                         <div className="text-blue-500">{skill.icon}</div>
                         <span className="text-sm font-medium">{skill.name}</span>
@@ -431,7 +460,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Experience Section */}
         <section id="experience" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading subtitle="My professional journey and internships.">
@@ -478,7 +506,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading subtitle="A collection of projects I've worked on during my studies and beyond.">
@@ -496,19 +523,24 @@ export default function App() {
                   className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/50 transition-all"
                 >
                   <div className="relative h-56 overflow-hidden">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                       <div className="flex gap-4">
-                        <a href={project.link} className="p-2 bg-white rounded-full text-slate-900 hover:bg-blue-600 hover:text-white transition-colors">
+                        <a
+                          href={project.link}
+                          className="p-2 bg-white rounded-full text-slate-900 hover:bg-blue-600 hover:text-white transition-colors"
+                        >
                           <ExternalLink className="w-5 h-5" />
                         </a>
                         {project.github && (
-                          <a href={project.github} className="p-2 bg-white rounded-full text-slate-900 hover:bg-blue-600 hover:text-white transition-colors">
+                          <a
+                            href={project.github}
+                            className="p-2 bg-white rounded-full text-slate-900 hover:bg-blue-600 hover:text-white transition-colors"
+                          >
                             <Github className="w-5 h-5" />
                           </a>
                         )}
@@ -517,8 +549,11 @@ export default function App() {
                   </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="px-2 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wider rounded"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -526,9 +561,7 @@ export default function App() {
                     <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
+                    <p className="text-slate-500 text-sm leading-relaxed">{project.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -536,7 +569,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Certificates Section */}
         <section id="certificates" className="py-24 bg-linear-to-t from-blue-50/50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading subtitle="Professional certifications and achievements.">
@@ -553,15 +585,26 @@ export default function App() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group"
                 >
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-44 object-cover rounded-xl mb-4 border border-slate-200"
+                  />
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-blue-50 rounded-xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                       <Award className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{cert.title}</h3>
-                      <p className="text-sm text-slate-500 mb-4">{cert.issuer} • {cert.date}</p>
-                      <a 
+                      <h3 className="font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
+                        {cert.title}
+                      </h3>
+                      <p className="text-sm text-slate-500 mb-4">
+                        {cert.issuer} • {cert.date}
+                      </p>
+                      <a
                         href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
                       >
                         View Certificate <ExternalLink className="w-3 h-3" />
@@ -574,7 +617,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="py-24 bg-slate-900 text-white overflow-hidden relative">
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-10">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full blur-3xl" />
@@ -584,11 +626,15 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-4xl font-bold mb-6">Let's build something <span className="text-blue-400">extraordinary</span> together.</h2>
+                <h2 className="text-4xl font-bold mb-6">
+                  Let's build something <span className="text-blue-400">extraordinary</span>{' '}
+                  together.
+                </h2>
                 <p className="text-slate-400 text-lg mb-12 max-w-md">
-                  I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                  I'm currently looking for new opportunities. Whether you have a question or just
+                  want to say hi, I'll try my best to get back to you!
                 </p>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-blue-400">
@@ -615,33 +661,41 @@ export default function App() {
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
-                      <input 
-                        type="text" 
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-slate-900"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
-                      <input 
-                        type="email" 
+                      <label className="block text-sm font-semibold text-slate-700 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-slate-900"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Subject</label>
-                    <input 
-                      type="text" 
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
                       className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-slate-900"
                       placeholder="Project Inquiry"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                    <textarea 
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
                       rows={4}
                       className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-slate-900 resize-none"
                       placeholder="Your message here..."
@@ -664,7 +718,7 @@ export default function App() {
             <span className="text-xl font-light text-slate-900">Portfolio</span>
           </div>
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Alex Chen. Built with React & Tailwind CSS.
+            © {new Date().getFullYear()} Kinley Cartagenas. Built with React & Tailwind CSS.
           </p>
         </div>
       </footer>
