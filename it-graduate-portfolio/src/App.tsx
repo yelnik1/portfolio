@@ -25,29 +25,6 @@ import {
   Building2,
 } from 'lucide-react';
 
-// =========================
-// IMPORT LOCAL ASSETS HERE
-// Replace these with your real filenames from src/assets
-// =========================
-import heroImage from './assets/ylnk.jpg';
-import aboutImg1 from './assets/knly1.jpg';
-import aboutImg2 from './assets/knly2.jpg';
-import aboutImg3 from './assets/knly3.jpg';
-import aboutImg4 from './assets/knly4.jpg';
-
-import project1Img from './assets/project-1.png';
-import project2Img from './assets/project-2.png';
-import project3Img from './assets/project-3.png';
-
-import cert1Img from './assets/cert1.jpg';
-import cert2Img from './assets/cert2.jpg';
-import cert3Img from './assets/cert3.jpg';
-import cert4Img from './assets/cert4.jpg';
-import cert5Img from './assets/5.jpg';
-import cert6Img from './assets/6.jpg';
-import cert7Img from './assets/7.jpg';
-
-
 // --- Types ---
 interface Project {
   id: number;
@@ -91,7 +68,7 @@ const PROJECTS: Project[] = [
     description:
       'A full-featured online store built with Laravel and React. Features include user authentication, product management, and Stripe integration.',
     tags: ['Laravel', 'React', 'MySQL', 'Tailwind'],
-    image: project1Img,
+    image: '/project-1.png',
     link: '#',
     github: '#',
   },
@@ -101,7 +78,7 @@ const PROJECTS: Project[] = [
     description:
       'A robust RESTful API for managing team tasks, featuring JWT authentication and automated testing with PHPUnit.',
     tags: ['PHP', 'Laravel', 'Redis', 'Docker'],
-    image: project2Img,
+    image: '/project-2.png',
     link: '#',
     github: '#',
   },
@@ -111,7 +88,7 @@ const PROJECTS: Project[] = [
     description:
       'A modern, responsive portfolio built with React and Framer Motion to showcase my journey as an IT graduate.',
     tags: ['React', 'TypeScript', 'Motion', 'Vite'],
-    image: project3Img,
+    image: '/project-3.png',
     link: '#',
     github: '#',
   },
@@ -160,8 +137,8 @@ const CERTIFICATES: Certificate[] = [
     title: 'Laravel Advanced Development',
     issuer: 'Udemy',
     date: '2024',
-    link: cert1Img,
-    image: cert1Img,
+    link: '/cert1.jpg',
+    image: '/cert1.jpg',
     icon: <Server className="w-5 h-5" />,
   },
   {
@@ -169,8 +146,8 @@ const CERTIFICATES: Certificate[] = [
     title: 'Meta Front-End Developer Professional Certificate',
     issuer: 'Coursera',
     date: '2023',
-    link: cert2Img,
-    image: cert2Img,
+    link: '/cert2.jpg',
+    image: '/cert2.jpg',
     icon: <Layout className="w-5 h-5" />,
   },
   {
@@ -178,9 +155,45 @@ const CERTIFICATES: Certificate[] = [
     title: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: '2024',
-    link: cert3Img,
-    image: cert3Img,
+    link: '/cert3.jpg',
+    image: '/cert3.jpg',
     icon: <Database className="w-5 h-5" />,
+  },
+  {
+    id: 4,
+    title: 'Certificate 4',
+    issuer: 'Issuer',
+    date: '2024',
+    link: '/cert4.jpg',
+    image: '/cert4.jpg',
+    icon: <Award className="w-5 h-5" />,
+  },
+  {
+    id: 5,
+    title: 'Certificate 5',
+    issuer: 'Issuer',
+    date: '2024',
+    link: '/5.jpg',
+    image: '/5.jpg',
+    icon: <Award className="w-5 h-5" />,
+  },
+  {
+    id: 6,
+    title: 'Certificate 6',
+    issuer: 'Issuer',
+    date: '2024',
+    link: '/6.jpg',
+    image: '/6.jpg',
+    icon: <Award className="w-5 h-5" />,
+  },
+  {
+    id: 7,
+    title: 'Certificate 7',
+    issuer: 'Issuer',
+    date: '2024',
+    link: '/7.jpg',
+    image: '/7.jpg',
+    icon: <Award className="w-5 h-5" />,
   },
 ];
 
@@ -360,7 +373,7 @@ export default function App() {
                 className="relative"
               >
                 <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                  <img src={heroImage} alt="Kinley Cartagenas" className="w-full h-auto object-cover" />
+                  <img src="/ylnk.jpg" alt="Kinley Cartagenas" className="w-full h-auto object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-600 rounded-2xl -z-10 opacity-20 blur-2xl" />
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-400 rounded-full -z-10 opacity-20 blur-2xl" />
@@ -415,12 +428,12 @@ export default function App() {
 
               <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-8">
-                  <img src={aboutImg1} className="rounded-2xl shadow-lg" alt="Coding" />
-                  <img src={aboutImg2} className="rounded-2xl shadow-lg" alt="Setup" />
+                  <img src="/knly1.jpg" className="rounded-2xl shadow-lg" alt="Coding" />
+                  <img src="/knly2.jpg" className="rounded-2xl shadow-lg" alt="Setup" />
                 </div>
                 <div className="space-y-4">
-                  <img src={aboutImg3} className="rounded-2xl shadow-lg" alt="Team" />
-                  <img src={aboutImg4} className="rounded-2xl shadow-lg" alt="Design" />
+                  <img src="/knly3.jpg" className="rounded-2xl shadow-lg" alt="Team" />
+                  <img src="/knly4.jpg" className="rounded-2xl shadow-lg" alt="Design" />
                 </div>
               </div>
             </div>
